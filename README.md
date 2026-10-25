@@ -2,11 +2,12 @@
 
 Course project for **PE6203 Generative AI & Agentic AI** at Nanyang Technological University (NTU), Group Project 5, Group 2: Zhao Xiaonan, Liu Xinyao, Shi Zhiyun, Chen Yayue, Meng Sijia. October 2026.
 
+> **Presentation slides (PDF):** [Group2_CostAwareHarness.pdf](Group2_CostAwareHarness.pdf), in the root of this repository.
+
 We kept the model, the tasks and the verifiers fixed and changed only the **harness**, the software around the model that decides the tools, what the model sees after each step, the budget and when the agent stops. On a fixed 40-task subset of [TUA-Bench](https://github.com/facebookresearch/TUA-Bench), five harness components on one subclass of Terminus-2 lifted the cheap model **MiniMax M3 from 35.5% to 63.7% at $7.00 per run, matching Claude Opus 5.5 with the default harness (62.0% at $28.07) at a quarter of the cost**. Task by task, M3 gained 13 tasks and lost 2 (sign test p = 0.007).
 
 - Full report: [report/REPORT.md](report/REPORT.md)
 - Failure analysis and per-component evidence: [docs/failure-analysis.md](docs/failure-analysis.md)
-- Slides: [report/slides/Group2_CostAwareHarness.pdf](report/slides/Group2_CostAwareHarness.pdf)
 - Raw logs for all 440 runs: attached to the [GitHub release](https://github.com/Lapis0x0/PE6203-cost-aware-harness/releases/tag/v1.0)
 
 ![Accuracy–cost plane](report/charts/pareto.png)
@@ -64,7 +65,8 @@ scripts/             run_config.py (run one config), start.sh / run_queue.sh / w
 runner-patches/      patches to Harbor 0.6.3 (see below)
 pricing/             price table used for cost, and provider price-list snapshots
 analysis/            all_runs.json (per-task results) and metrics.json (everything in the report)
-report/              REPORT.md, charts (with sources) and slides
+report/              REPORT.md and charts (with sources)
+Group2_CostAwareHarness.pdf   presentation slides
 docs/                failure analysis and component evidence
 ```
 
