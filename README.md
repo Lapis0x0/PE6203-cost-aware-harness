@@ -7,7 +7,7 @@ We kept the model, the tasks and the verifiers fixed and changed only the **harn
 - Full report: [report/REPORT.md](report/REPORT.md)
 - Failure analysis and per-component evidence: [docs/failure-analysis.md](docs/failure-analysis.md)
 - Slides: [report/slides/Group2_CostAwareHarness.pdf](report/slides/Group2_CostAwareHarness.pdf)
-- Raw logs for all 440 runs: attached to the [GitHub release](../../releases)
+- Raw logs for all 440 runs: attached to the [GitHub release](https://github.com/Lapis0x0/PE6203-cost-aware-harness/releases/tag/v1.0)
 
 ![Accuracy–cost plane](report/charts/pareto.png)
 
@@ -104,4 +104,4 @@ One configuration took roughly 2 to 12 hours on a small VPS. The offline tests r
 
 ## Raw logs
 
-The [release](../../releases) has one archive per configuration (`logs-<config>.tar.gz`, about 13 MB in total). Each unpacks to `<config>/<task>/` with `config.json`, `result.json`, `trial.log`, `agent/trajectory.json` and `verifier/`, for the last trial of each task, the same rule `scripts/export_results.py` uses; recomputing success from these files reproduces every number above. `logs-B0-qwen36.tar.gz` holds the earlier weak-model baseline (27.4%) that the failure analysis refers to.
+The [release](https://github.com/Lapis0x0/PE6203-cost-aware-harness/releases/tag/v1.0) has one archive per configuration (`logs-<config>.tar.gz`, about 13 MB in total). Each unpacks to `<config>/<task>/` with `config.json`, `result.json`, `trial.log`, `agent/trajectory.json` and `verifier/`, for the last trial of each task, the same rule `scripts/export_results.py` uses; recomputing success from these files reproduces every number above. `logs-B0-qwen36.tar.gz` holds the earlier weak-model baseline (27.4%) that the failure analysis refers to.
