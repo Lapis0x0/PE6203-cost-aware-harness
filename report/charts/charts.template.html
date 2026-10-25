@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cost-Aware Harness — Result Charts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Projection version: solid marks, large type, high contrast. Colours follow the group slide template (NTU navy + red); red is reserved for "our harness". */
+  :root{--ink:#1B2A5B;--muted:#4A5070}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#F3F4F8;font-family:'Inter',sans-serif;color:var(--ink);padding:40px;-webkit-font-smoothing:antialiased}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1180px;margin:0 auto}
+  .card{background:#FFFFFF;border-radius:20px;padding:26px 26px 18px}
+  .card.wide{grid-column:1/-1}
+  h2{font-weight:700;font-size:17px;letter-spacing:-.02em;margin-bottom:4px}
+  .sub{font-size:12px;color:var(--muted);margin-bottom:14px}
+  svg{width:100%;display:block;margin:0 auto}
+  svg text{font-family:'Inter',sans-serif}
+  .pagehead{max-width:1180px;margin:0 auto 26px;padding:0 4px}
+  .pagehead h1{font-size:22px;letter-spacing:-.02em;font-weight:800}
+  .pagehead p{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.7}
+  body.export{padding:0;background:#FFFFFF}
+  body.export .pagehead{display:none}
+  body.export .grid2{display:block;max-width:none}
+  body.export .card{display:none;padding:0;border-radius:0}
+  body.export .card.on{display:block}
+  body.export .card h2,body.export .card .sub{display:none}
+</style>
+</head>
+<body>
+<div class="pagehead">
+  <h1>Cost-Aware Harness Optimization · results on a 40-task TUA-Bench subset</h1>
+  <p>One run per configuration · 2400 s per task, no step limit · all models through Atlas Cloud, dollars from its price table (per 1M tokens: M3 $0.30 in / $0.06 cached / $1.20 out; Flash $0.30 / $0.03 / $1.20; Opus 5.5 $4.00 / $0.20 / $20.00).</p>
+</div>
+<div class="grid2">
+  <div class="card wide" data-id="pareto">
+    <h2>A cheap model with our harness matches Opus 5.5 at a quarter of the cost</h2>
+    <div class="sub">hollow = default Terminus-2 · solid = our harness · dashed line = Opus 5.5 with the default harness (62.0%) · x on a log scale</div>
+    <svg id="pareto" viewBox="0 0 680 340"></svg>
+  </div>
+  <div class="card wide" data-id="ablation">
+    <h2>Every component lifts M3 on its own; together they reach 63.7%</h2>
+    <div class="sub">pale = default baseline (35.5%) · dark = what the component adds · dollars per 40-task run on the right</div>
+    <svg id="ablation" viewBox="0 0 640 300"></svg>
+  </div>
+  <div class="card wide" data-id="gain">
+    <h2>Same harness, three models</h2>
+    <div class="sub">hollow = default harness · solid = our harness · cost per run on the right</div>
+    <svg id="gain" viewBox="0 0 640 230"></svg>
+  </div>
+  <div class="card" data-id="cost">
+    <h2>Opus paid for output; our harness cut it by 90%</h2>
+    <div class="sub">dollars per 40-task run, split by token type</div>
+    <svg id="cost" viewBox="0 0 420 320"></svg>
+  </div>
+  <div class="card" data-id="family">
+    <h2>Office tasks went from 6% to 47%</h2>
+    <div class="sub">MiniMax M3 by task family · default vs our harness</div>
+    <svg id="family" viewBox="0 0 420 320"></svg>
+  </div>
+</div>
+<script>
+const M = __METRICS__;
+const INK='#1B2A5B',RED='#D71920',MID='#3B5094',SOFT='#7D89B3',PALE='#C9CFE0',GRID='#E3E6EF',TXT='#2E3554',MUTED='#5A6080',W='#FFFFFF';
+// Model colours: M3 in template red (the subject), Flash in DeepSeek blue, Opus in Claude terracotta; the TXT variants are one step darker for legibility on white
+const MODEL={m3:{c:RED,t:RED,tint:'#F4C2C4'},flash:{c:'#4D6BFE',t:'#3550D8',tint:'#C9D3FF'},opus:{c:'#D97757',t:'#B5532F',tint:'#F2CFC2'}};
+const modelOf=k=>k.includes('flash')?MODEL.flash:k.includes('opus')?MODEL.opus:MODEL.m3;
+const NS='http://www.w3.org/2000/svg';
+const el=(p,t,a)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);p.appendChild(n);return n};
+const txt=(p,a,s)=>{const n=el(p,'text',a);n.textContent=s;return n};
+const span=(t,s,a)=>{const n=document.createElementNS(NS,'tspan');for(const k in a)n.setAttribute(k,a[k]);n.textContent=s;t.appendChild(n);return n};
+const halo={'paint-order':'stroke',stroke:W,'stroke-width':'4px','stroke-linejoin':'round'};
+const C=M.configs;
+const fmt$=v=>'$'+v.toFixed(2);
+const draw=(id,fn)=>fn(document.getElementById(id));
+
+// ── 1 · accuracy–cost scatter ──
+draw('pareto',s=>{
+  const lo=Math.log(1.4),hi=Math.log(36);
+  const X0=78,X1=650,base=300,mapX=c=>X0+(Math.log(c)-lo)/(hi-lo)*(X1-X0),mapY=v=>base-(v-30)*5.3;
+  [40,50,60,70,80].forEach(v=>{const y=mapY(v);
+    el(s,'line',{x1:X0,y1:y,x2:X1,y2:y,stroke:GRID,'stroke-width':1});
+    txt(s,{x:X0-10,y:y+4.5,'font-size':13,'font-weight':600,fill:MUTED,'text-anchor':'end'},v+'%');});
+  el(s,'line',{x1:X0,y1:base,x2:X1,y2:base,stroke:'#9AA3C2','stroke-width':1.5});
+  [2,4,8,16,32].forEach(v=>{const x=mapX(v);
+    el(s,'line',{x1:x,y1:base,x2:x,y2:base+5,stroke:'#9AA3C2','stroke-width':1.5});
+    txt(s,{x,y:base+21,'font-size':13,'font-weight':600,fill:MUTED,'text-anchor':'middle'},'$'+v);});
+  txt(s,{x:X1,y:base+38,'font-size':11.5,'font-weight':700,fill:SOFT,'text-anchor':'end','letter-spacing':'.04em'},'DOLLARS PER 40-TASK RUN (LOG SCALE)');
+  const yo=mapY(C['B1-opus55'].success);
+  el(s,'line',{x1:X0,y1:yo,x2:X1,y2:yo,stroke:MODEL.opus.c,'stroke-width':1.4,'stroke-dasharray':'5 4',opacity:.6});
+  const F=M.pareto_frontier.map(k=>C[k]);
+  let d=`M${mapX(F[0].cost)},${mapY(F[0].success)}`;
+  for(let i=1;i<F.length;i++)d+=` L${mapX(F[i].cost)},${mapY(F[i-1].success)} L${mapX(F[i].cost)},${mapY(F[i].success)}`;
+  d+=` L${X1},${mapY(F[F.length-1].success)}`;
+  el(s,'path',{d,fill:'none',stroke:SOFT,'stroke-width':2,'stroke-dasharray':'7 4'});
+  txt(s,{x:X1,y:mapY(F[F.length-1].success)-7,'font-size':11.5,'font-weight':700,fill:SOFT,'text-anchor':'end'},'Pareto frontier');
+  el(s,'defs',{}).innerHTML=['m3','flash','opus'].map(m=>`<marker id="ah-${m}" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="${MODEL[m].c}"/></marker>`).join('');
+  [['B0-minimax-m3','H-m3','m3'],['B0-flash','H-flash','flash'],['B1-opus55','H-opus55','opus']].forEach(([a,b,m])=>{
+    const xa=mapX(C[a].cost),ya=mapY(C[a].success),xb=mapX(C[b].cost),yb=mapY(C[b].success);
+    const dx=xb-xa,dy=yb-ya,len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len;
+    el(s,'line',{x1:xa+ux*11,y1:ya+uy*11,x2:xb-ux*13,y2:yb-uy*13,stroke:MODEL[m].c,'stroke-width':2.2,opacity:.75,'marker-end':`url(#ah-${m})`});
+  });
+  const LAB={
+    'B0-minimax-m3':['M3 · default',[12,4],'start'],
+    'H-m3':['M3 · ours',[13,-11],'start'],
+    'B0-flash':['Flash · default',[2,26],'start'],
+    'H-flash':['Flash · ours',[-14,-14],'end'],
+    'B1-opus55':['Opus 5.5 · default',[0,26],'end'],
+    'H-opus55':['Opus 5.5 · ours',[6,-26],'start'],
+  };
+  Object.entries(LAB).forEach(([k,[name,[ox,oy],anchor]])=>{
+    const c=C[k],x=mapX(c.cost),y=mapY(c.success),hero=k==='H-m3',P=modelOf(k);
+    if(c.variant==='default')el(s,'circle',{cx:x,cy:y,r:8,fill:W,stroke:P.c,'stroke-width':2.8});
+    else el(s,'circle',{cx:x,cy:y,r:hero?10:8.5,fill:P.c});
+    const t=txt(s,{x:x+ox,y:y+oy,'text-anchor':anchor,...halo},'');
+    span(t,name,{'font-size':13.5,'font-weight':800,fill:P.t});
+    const one=k==='H-opus55';
+    span(t,`${one?'  ':''}${c.success.toFixed(1)}% · ${fmt$(c.cost)}`,one?{'font-size':12.5,'font-weight':600,fill:MUTED}:{x:x+ox,dy:15,'font-size':12.5,'font-weight':600,fill:hero?RED:MUTED});
+  });
+});
+
+// ── 2 · ablation bars ──
+draw('ablation',s=>{
+  const b0=C['B0-minimax-m3'].success;
+  const D=[['C1  Native tool calls','A1-m3'],['C2  Pre-submit check','A2-m3'],['C3  Stall + budget','A3-m3'],['C4  Domain notes','A4-m3'],['C5  Output denoise','A5-m3'],['All five','H-m3']];
+  const X0=168,PX=4.7,BH=24,y0=i=>34+i*42+(i===5?8:0);
+  D.forEach(([name,k],i)=>{
+    const c=C[k],v=c.success,hero=k==='H-m3',y=y0(i);
+    txt(s,{x:X0-12,y:y+BH/2+5,'font-size':14,'font-weight':700,fill:hero?RED:TXT,'text-anchor':'end'},name);
+    el(s,'rect',{x:X0,y,width:b0*PX,height:BH,fill:PALE});
+    el(s,'rect',{x:X0+b0*PX,y,width:(v-b0)*PX,height:BH,fill:hero?RED:INK});
+    txt(s,{x:X0+v*PX+10,y:y+BH/2+6,'font-size':16,'font-weight':800,fill:hero?RED:INK},`${v.toFixed(1)}%`);
+    txt(s,{x:X0+v*PX+68,y:y+BH/2+5,'font-size':12.5,'font-weight':600,fill:MUTED},`+${(v-b0).toFixed(1)} · ${fmt$(c.cost)}`);
+  });
+  el(s,'line',{x1:X0+b0*PX,y1:20,x2:X0+b0*PX,y2:y0(5)+BH+6,stroke:INK,'stroke-width':1.5,'stroke-dasharray':'4 3'});
+  txt(s,{x:X0+b0*PX,y:13,'font-size':12,'font-weight':700,fill:INK,'text-anchor':'middle'},`Default: ${b0}% · ${fmt$(C['B0-minimax-m3'].cost)}`);
+  el(s,'line',{x1:20,y1:y0(5)-9,x2:620,y2:y0(5)-9,stroke:GRID,'stroke-width':1.2});
+  el(s,'line',{x1:X0,y1:20,x2:X0,y2:y0(5)+BH+6,stroke:'#9AA3C2','stroke-width':1.2});
+});
+
+// ── 3 · dumbbell ──
+draw('gain',s=>{
+  const D=[['MiniMax M3','B0-minimax-m3','H-m3'],['DeepSeek V4.1 Flash','B0-flash','H-flash'],['Claude Opus 5.5','B1-opus55','H-opus55']];
+  const X0=180,X1=500,mapX=v=>X0+(v-30)/50*(X1-X0),y0=i=>52+i*56;
+  [30,40,50,60,70,80].forEach(v=>{
+    el(s,'line',{x1:mapX(v),y1:28,x2:mapX(v),y2:y0(2)+26,stroke:GRID,'stroke-width':1});
+    txt(s,{x:mapX(v),y:y0(2)+44,'font-size':13,'font-weight':600,fill:MUTED,'text-anchor':'middle'},v+'%');});
+  txt(s,{x:568,y:24,'font-size':12,'font-weight':700,fill:SOFT,'text-anchor':'middle'},'Cost per run');
+  D.forEach(([name,a,b],i)=>{
+    const y=y0(i),was=C[a].success,now=C[b].success,xa=mapX(was),xb=mapX(now),P=modelOf(a);
+    txt(s,{x:X0-20,y:y+5,'font-size':14,'font-weight':700,fill:TXT,'text-anchor':'end'},name);
+    el(s,'line',{x1:xa,y1:y,x2:xb,y2:y,stroke:P.tint,'stroke-width':8,'stroke-linecap':'round'});
+    el(s,'circle',{cx:xa,cy:y,r:8,fill:W,stroke:P.c,'stroke-width':2.8});
+    el(s,'circle',{cx:xb,cy:y,r:9,fill:P.c});
+    txt(s,{x:xa,y:y-15,'font-size':13,'font-weight':700,fill:SOFT,'text-anchor':'middle'},was.toFixed(1));
+    txt(s,{x:xb,y:y-15,'font-size':15,'font-weight':800,fill:P.t,'text-anchor':'middle'},now.toFixed(1));
+    txt(s,{x:(xa+xb)/2,y:y+23,'font-size':12.5,'font-weight':800,fill:P.t,'text-anchor':'middle'},`+${(now-was).toFixed(1)}`);
+    const down=C[b].cost<C[a].cost;
+    const t=txt(s,{x:568,y:y+5,'text-anchor':'middle'},'');
+    span(t,fmt$(C[a].cost)+' → ',{'font-size':13,'font-weight':600,fill:MUTED});
+    span(t,fmt$(C[b].cost),{'font-size':14,'font-weight':800,fill:P.t});
+  });
+});
+
+// ── 4 · stacked cost ──
+draw('cost',s=>{
+  const D=[['Opus','default','B1-opus55'],['Opus','ours','H-opus55'],['M3','default','B0-minimax-m3'],['M3','ours','H-m3']];
+  const SEG=[['output',INK,'Output'],['uncached_input',SOFT,'Uncached input'],['cache_read',PALE,'Cached input']];
+  const base=262,PY=7.4,BW=58,x0=i=>62+i*92;
+  [0,10,20,30].forEach(v=>{const y=base-v*PY;
+    el(s,'line',{x1:40,y1:y,x2:410,y2:y,stroke:v?GRID:'#9AA3C2','stroke-width':v?1:1.5});
+    txt(s,{x:34,y:y+4.5,'font-size':12,'font-weight':600,fill:MUTED,'text-anchor':'end'},'$'+v);});
+  D.forEach(([m,vnt,k],i)=>{
+    const c=C[k],x=x0(i);let acc=0;
+    SEG.forEach(([seg,col])=>{
+      const v=c.cost_split[seg],h=v*PY;
+      el(s,'rect',{x,y:base-acc-h,width:BW,height:h,fill:col});
+      if(v>=2)txt(s,{x:x+BW/2,y:base-acc-h/2+5,'font-size':12.5,'font-weight':800,fill:col===PALE?INK:W,'text-anchor':'middle'},fmt$(v));
+      acc+=h;
+    });
+    txt(s,{x:x+BW/2,y:base-acc-8,'font-size':16,'font-weight':800,fill:k==='H-opus55'?RED:INK,'text-anchor':'middle'},fmt$(c.cost));
+    txt(s,{x:x+BW/2,y:base+19,'font-size':13,'font-weight':700,fill:TXT,'text-anchor':'middle'},m);
+    txt(s,{x:x+BW/2,y:base+34,'font-size':12,'font-weight':600,fill:MUTED,'text-anchor':'middle'},vnt);
+  });
+  SEG.forEach(([,col,lab],i)=>{const x=62+i*118;
+    el(s,'rect',{x,y:304,width:12,height:12,fill:col});
+    txt(s,{x:x+17,y:314,'font-size':12,'font-weight':600,fill:TXT},lab);});
+});
+
+// ── 5 · paired family bars ──
+draw('family',s=>{
+  const FAM=[['Office','Office & Productivity'],['Web','Web & Information'],['System','System & Software Operations'],['Media','Multimedia & Design']];
+  const A=C['B0-minimax-m3'].by_family,B=C['H-m3'].by_family;
+  const base=250,PY=2.3,BW=34,x0=i=>64+i*90;
+  [0,25,50,75,100].forEach(v=>{const y=base-v*PY;
+    el(s,'line',{x1:40,y1:y,x2:410,y2:y,stroke:v?GRID:'#9AA3C2','stroke-width':v?1:1.5});
+    txt(s,{x:34,y:y+4.5,'font-size':12,'font-weight':600,fill:MUTED,'text-anchor':'end'},v+'%');});
+  FAM.forEach(([name,f],i)=>{
+    const was=A[f].success,now=B[f].success,x=x0(i),hero=f==='Office & Productivity';
+    el(s,'rect',{x,y:base-was*PY,width:BW,height:was*PY,fill:PALE});
+    el(s,'rect',{x:x+BW+4,y:base-now*PY,width:BW,height:now*PY,fill:hero?RED:INK});
+    txt(s,{x:x+BW/2,y:base-was*PY-7,'font-size':13,'font-weight':700,fill:SOFT,'text-anchor':'middle'},Math.round(was));
+    txt(s,{x:x+BW*1.5+4,y:base-now*PY-7,'font-size':15,'font-weight':800,fill:hero?RED:INK,'text-anchor':'middle'},Math.round(now));
+    txt(s,{x:x+BW+2,y:base+19,'font-size':13.5,'font-weight':700,fill:TXT,'text-anchor':'middle'},name);
+    txt(s,{x:x+BW+2,y:base+34,'font-size':12,'font-weight':600,fill:MUTED,'text-anchor':'middle'},`${A[f].n} tasks`);
+  });
+  [[PALE,'Default harness'],[INK,'Our harness']].forEach(([col,lab],i)=>{const x=64+i*150;
+    el(s,'rect',{x,y:302,width:12,height:12,fill:col});
+    txt(s,{x:x+17,y:312,'font-size':12,'font-weight':600,fill:TXT},lab);});
+});
+
+if(new URLSearchParams(location.search).get('export')){
+  document.body.classList.add('export');
+  const id=new URLSearchParams(location.search).get('export');
+  document.querySelectorAll('.card').forEach(c=>{if(c.dataset.id===id)c.classList.add('on')});
+}
+</script>
+</body>
+</html>

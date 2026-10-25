@@ -1,0 +1,11 @@
+{
+  "name": "B0-qwen36",
+  "description": "Weak cheap-model baseline: stock Terminus-2 + Qwen3.6-35B-A3B (Atlas, Chat Completions, default thinking)",
+  "agent": "terminus-2",
+  "model": "openai/qwen/qwen3.6-35b-a3b",
+  "price_id": "qwen/qwen3.6-35b-a3b",
+  "api_base_env": "ATLASCLOUD_BASE_URL",
+  "api_base_strip_v1": false,
+  "key_env_name": "OPENAI_API_KEY",
+  "agent_kwargs": {}
+}

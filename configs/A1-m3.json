@@ -1,0 +1,17 @@
+{
+  "name": "A1-m3",
+  "description": "Ablation: MiniMax M3 + Terminus-2 + C1 only (native tool calls, continuous reasoning, write_file)",
+  "model": "openai/minimaxai/minimax-m3",
+  "price_id": "minimaxai/minimax-m3",
+  "api_base_env": "ATLASCLOUD_BASE_URL",
+  "api_base_strip_v1": false,
+  "key_env_name": "OPENAI_API_KEY",
+  "agent_kwargs": {
+    "llm_call_kwargs": {
+      "cah_stream_aggregate": true
+    },
+    "c1_native_tools": true
+  },
+  "notes": "Model settings are identical to B0-minimax-m3; only the component switches differ. See README.md and docs/failure-analysis.md.",
+  "agent_import_path": "cah_agent:CostAwareTerminus"
+}

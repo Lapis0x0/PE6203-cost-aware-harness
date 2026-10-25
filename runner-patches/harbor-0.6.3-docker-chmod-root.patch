@@ -1,0 +1,12 @@
+--- a/harbor/environments/docker/docker.py
++++ b/harbor/environments/docker/docker.py
+@@ -499,7 +499,8 @@
+         # not use Unix file permissions.)
+         if not self._is_windows_container:
+             await self.exec(
+-                f"chmod 777 {self._env_paths.agent_dir} {self._env_paths.verifier_dir}"
++                f"chmod 777 {self._env_paths.agent_dir} {self._env_paths.verifier_dir} {self._env_paths.artifacts_dir}",
++                user="root",  # cost-aware-harness patch: the TUA image defaults to USER agent; without running chmod as root it fails silently and the verifier cannot write reward; same for the artifacts directory, otherwise test.sh cannot save its output files
+             )
+ 
+     async def prepare_logs_for_host(self) -> None:

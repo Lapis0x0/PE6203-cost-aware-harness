@@ -1,0 +1,44 @@
+--- a/harbor/llms/lite_llm.py	2026-10-12 21:23:13.458411809 +0800
++++ b/harbor/llms/lite_llm.py	2026-10-12 21:23:13.461411817 +0800
+@@ -331,6 +331,10 @@
+             elif "extra_body" in kwargs:
+                 kwargs["extra_body"] = {**kwargs["extra_body"]}
+             completion_kwargs.update(kwargs)
++            # cost-aware-harness patch: on Atlas, non-streaming MiniMax M3 calls repeat the body text verbatim (usage is double-counted too);
++            # streaming is fine. When llm_call_kwargs sets cah_stream_aggregate=true in the config, stream and reassemble a normal response.
++            # Only the transport changes; model and decoding parameters are unchanged. Other configs do not set this switch, so their behaviour is unchanged.
++            cah_stream = bool(completion_kwargs.pop("cah_stream_aggregate", False))
+ 
+             # Add thinking parameter for Anthropic models if max_thinking_tokens is set
+             if self._max_thinking_tokens is not None and (
+@@ -357,7 +361,7 @@
+                 extra_body["session_id"] = self._session_id
+ 
+             try:
+-                response = await litellm.acompletion(**completion_kwargs)
++                response = await _cah_acompletion(completion_kwargs, cah_stream)
+             except LiteLLMBadRequestError as e:
+                 # If provider (e.g., OpenAI) rejects extra_body parameters, retry without them
+                 # Some providers reject custom parameters like: return_token_ids, session_id, etc.
+@@ -387,7 +391,7 @@
+                             if not extra_body:
+                                 del completion_kwargs["extra_body"]
+ 
+-                        response = await litellm.acompletion(**completion_kwargs)
++                        response = await _cah_acompletion(completion_kwargs, cah_stream)
+                     else:
+                         raise e
+                 else:
+@@ -764,3 +768,12 @@
+             usage=usage_info,
+             response_id=response_id,
+         )
++
++
++async def _cah_acompletion(completion_kwargs: dict, stream: bool):
++    """cost-aware-harness patch: optionally stream and reassemble a ModelResponse with stream_chunk_builder."""
++    if not stream:
++        return await litellm.acompletion(**completion_kwargs)
++    kw = {**completion_kwargs, "stream": True, "stream_options": {"include_usage": True}}
++    chunks = [c async for c in await litellm.acompletion(**kw)]
++    return litellm.stream_chunk_builder(chunks, messages=completion_kwargs.get("messages"))

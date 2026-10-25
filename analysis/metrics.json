@@ -1,0 +1,1504 @@
+{
+ "subset_size": 40,
+ "configs": {
+  "B0-minimax-m3": {
+   "model": "m3",
+   "variant": "default",
+   "label": "MiniMax M3 · default",
+   "n": 40,
+   "success": 35.5,
+   "full_solves": 13,
+   "cost": 3.32,
+   "cost_split": {
+    "uncached_input": 0.28,
+    "cache_read": 2.36,
+    "output": 0.68
+   },
+   "tokens": {
+    "input": 40213601,
+    "cache": 39274355,
+    "output": 565336
+   },
+   "steps": 1321,
+   "agent_minutes": 286,
+   "harness_overhead_tokens": 0,
+   "harness_overhead_usd": 0.0,
+   "harness_overhead_share_of_input": 0.0,
+   "by_family": {
+    "Multimedia & Design": {
+     "n": 5,
+     "success": 63.9
+    },
+    "Office & Productivity": {
+     "n": 17,
+     "success": 5.9
+    },
+    "System & Software Operations": {
+     "n": 8,
+     "success": 75.0
+    },
+    "Web & Information": {
+     "n": 10,
+     "success": 40.0
+    }
+   },
+   "tasks_with_event": {
+    "c2_gate": 0,
+    "c2_report": 0,
+    "c3_time": 0,
+    "c3_repeat": 0,
+    "c3_stuck": 0,
+    "c3_respawn": 0,
+    "c5_noise": 0,
+    "c5_repeat": 0
+   }
+  },
+  "H-m3": {
+   "model": "m3",
+   "variant": "ours",
+   "label": "MiniMax M3 · ours",
+   "n": 40,
+   "success": 63.7,
+   "full_solves": 25,
+   "cost": 7.0,
+   "cost_split": {
+    "uncached_input": 0.33,
+    "cache_read": 5.64,
+    "output": 1.03
+   },
+   "tokens": {
+    "input": 95102997,
+    "cache": 93995484,
+    "output": 859389
+   },
+   "steps": 2838,
+   "agent_minutes": 477,
+   "harness_overhead_tokens": 1149590,
+   "harness_overhead_usd": 0.077,
+   "harness_overhead_share_of_input": 1.21,
+   "by_family": {
+    "Multimedia & Design": {
+     "n": 5,
+     "success": 69.7
+    },
+    "Office & Productivity": {
+     "n": 17,
+     "success": 47.1
+    },
+    "System & Software Operations": {
+     "n": 8,
+     "success": 87.5
+    },
+    "Web & Information": {
+     "n": 10,
+     "success": 70.0
+    }
+   },
+   "tasks_with_event": {
+    "c2_gate": 40,
+    "c2_report": 17,
+    "c3_time": 9,
+    "c3_repeat": 6,
+    "c3_stuck": 1,
+    "c3_respawn": 1,
+    "c5_noise": 4,
+    "c5_repeat": 11
+   }
+  },
+  "A1-m3": {
+   "model": "m3",
+   "variant": "C1",
+   "label": "M3 + C1 only",
+   "n": 40,
+   "success": 53.8,
+   "full_solves": 21,
+   "cost": 6.72,
+   "cost_split": {
+    "uncached_input": 0.38,
+    "cache_read": 5.1,
+    "output": 1.23
+   },
+   "tokens": {
+    "input": 86332248,
+    "cache": 85071107,
+    "output": 1027943
+   },
+   "steps": 2618,
+   "agent_minutes": 420,
+   "harness_overhead_tokens": 0,
+   "harness_overhead_usd": 0.0,
+   "harness_overhead_share_of_input": 0.0,
+   "by_family": {
+    "Multimedia & Design": {
+     "n": 5,
+     "success": 70.1
+    },
+    "Office & Productivity": {
+     "n": 17,
+     "success": 17.6
+    },
+    "System & Software Operations": {
+     "n": 8,
+     "success": 87.5
+    },
+    "Web & Information": {
+     "n": 10,
+     "success": 80.0
+    }
+   },
+   "tasks_with_event": {
+    "c2_gate": 0,
+    "c2_report": 0,
+    "c3_time": 0,
+    "c3_repeat": 0,
+    "c3_stuck": 0,
+    "c3_respawn": 0,
+    "c5_noise": 0,
+    "c5_repeat": 0
+   }
+  },
+  "A2-m3": {
+   "model": "m3",
+   "variant": "C2",
+   "label": "M3 + C2 only",
+   "n": 40,
+   "success": 59.7,
+   "full_solves": 23,
+   "cost": 4.33,
+   "cost_split": {
+    "uncached_input": 0.3,
+    "cache_read": 3.28,
+    "output": 0.75
+   },
+   "tokens": {
+    "input": 55619661,
+    "cache": 54607542,
+    "output": 626496
+   },
+   "steps": 1657,
+   "agent_minutes": 329,
+   "harness_overhead_tokens": 71331,
+   "harness_overhead_usd": 0.008,
+   "harness_overhead_share_of_input": 0.13,
+   "by_family": {
+    "Multimedia & Design": {
+     "n": 5,
+     "success": 77.7
+    },
+    "Office & Productivity": {
+     "n": 17,
+     "success": 35.3
+    },
+    "System & Software Operations": {
+     "n": 8,
+     "success": 100.0
+    },
+    "Web & Information": {
+     "n": 10,
+     "success": 60.0
+    }
+   },
+   "tasks_with_event": {
+    "c2_gate": 39,
+    "c2_report": 16,
+    "c3_time": 0,
+    "c3_repeat": 0,
+    "c3_stuck": 0,
+    "c3_respawn": 0,
+    "c5_noise": 0,
+    "c5_repeat": 0
+   }
+  },
+  "A3-m3": {
+   "model": "m3",
+   "variant": "C3",
+   "label": "M3 + C3 only",
+   "n": 40,
+   "success": 49.7,
+   "full_solves": 19,
+   "cost": 2.3,
+   "cost_split": {
+    "uncached_input": 0.24,
+    "cache_read": 1.49,
+    "output": 0.57
+   },
+   "tokens": {
+    "input": 25603415,
+    "cache": 24812236,
+    "output": 475939
+   },
+   "steps": 1149,
+   "agent_minutes": 225,
+   "harness_overhead_tokens": 9639,
+   "harness_overhead_usd": 0.001,
+   "harness_overhead_share_of_input": 0.04,
+   "by_family": {
+    "Multimedia & Design": {
+     "n": 5,
+     "success": 57.5
+    },
+    "Office & Productivity": {
+     "n": 17,
+     "success": 29.4
+    },
+    "System & Software Operations": {
+     "n": 8,
+     "success": 87.5
+    },
+    "Web & Information": {
+     "n": 10,
+     "success": 50.0
+    }
+   },
+   "tasks_with_event": {
+    "c2_gate": 0,
+    "c2_report": 0,
+    "c3_time": 2,
+    "c3_repeat": 5,
+    "c3_stuck": 0,
+    "c3_respawn": 0,
+    "c5_noise": 0,
+    "c5_repeat": 0
+   }
+  },
+  "A4-m3": {
+   "model": "m3",
+   "variant": "C4",
+   "label": "M3 + C4 only",
+   "n": 40,
+   "success": 49.4,
+   "full_solves": 19,
+   "cost": 4.85,
+   "cost_split": {
+    "uncached_input": 0.27,
+    "cache_read": 3.83,
+    "output": 0.75
+   },
+   "tokens": {
+    "input": 64702503,
+    "cache": 63790386,
+    "output": 625609
+   },
+   "steps": 1605,
+   "agent_minutes": 292,
+   "harness_overhead_tokens": 571380,
+   "harness_overhead_usd": 0.038,
+   "harness_overhead_share_of_input": 0.88,
+   "by_family": {
+    "Multimedia & Design": {
+     "n": 5,
+     "success": 55.1
+    },
+    "Office & Productivity": {
+     "n": 17,
+     "success": 23.5
+    },
+    "System & Software Operations": {
+     "n": 8,
+     "success": 87.5
+    },
+    "Web & Information": {
+     "n": 10,
+     "success": 60.0
+    }
+   },
+   "tasks_with_event": {
+    "c2_gate": 0,
+    "c2_report": 0,
+    "c3_time": 0,
+    "c3_repeat": 0,
+    "c3_stuck": 0,
+    "c3_respawn": 0,
+    "c5_noise": 0,
+    "c5_repeat": 0
+   }
+  },
+  "A5-m3": {
+   "model": "m3",
+   "variant": "C5",
+   "label": "M3 + C5 only",
+   "n": 40,
+   "success": 56.1,
+   "full_solves": 22,
+   "cost": 4.06,
+   "cost_split": {
+    "uncached_input": 0.33,
+    "cache_read": 3.0,
+    "output": 0.73
+   },
+   "tokens": {
+    "input": 51114019,
+    "cache": 50000653,
+    "output": 608196
+   },
+   "steps": 1461,
+   "agent_minutes": 323,
+   "harness_overhead_tokens": 44599,
+   "harness_overhead_usd": 0.003,
+   "harness_overhead_share_of_input": 0.09,
+   "by_family": {
+    "Multimedia & Design": {
+     "n": 5,
+     "success": 68.8
+    },
+    "Office & Productivity": {
+     "n": 17,
+     "success": 35.3
+    },
+    "System & Software Operations": {
+     "n": 8,
+     "success": 100.0
+    },
+    "Web & Information": {
+     "n": 10,
+     "success": 50.0
+    }
+   },
+   "tasks_with_event": {
+    "c2_gate": 0,
+    "c2_report": 0,
+    "c3_time": 0,
+    "c3_repeat": 0,
+    "c3_stuck": 0,
+    "c3_respawn": 0,
+    "c5_noise": 11,
+    "c5_repeat": 11
+   }
+  },
+  "B0-flash": {
+   "model": "flash",
+   "variant": "default",
+   "label": "DeepSeek V4.1 Flash · default",
+   "n": 40,
+   "success": 70.8,
+   "full_solves": 28,
+   "cost": 1.72,
+   "cost_split": {
+    "uncached_input": 0.25,
+    "cache_read": 0.29,
+    "output": 1.17
+   },
+   "tokens": {
+    "input": 10617227,
+    "cache": 9781760,
+    "output": 975802
+   },
+   "steps": 615,
+   "agent_minutes": 142,
+   "harness_overhead_tokens": 0,
+   "harness_overhead_usd": 0.0,
+   "harness_overhead_share_of_input": 0.0,
+   "by_family": {
+    "Multimedia & Design": {
+     "n": 5,
+     "success": 66.8
+    },
+    "Office & Productivity": {
+     "n": 17,
+     "success": 58.8
+    },
+    "System & Software Operations": {
+     "n": 8,
+     "success": 87.5
+    },
+    "Web & Information": {
+     "n": 10,
+     "success": 80.0
+    }
+   },
+   "tasks_with_event": {
+    "c2_gate": 0,
+    "c2_report": 0,
+    "c3_time": 0,
+    "c3_repeat": 0,
+    "c3_stuck": 0,
+    "c3_respawn": 0,
+    "c5_noise": 0,
+    "c5_repeat": 0
+   }
+  },
+  "H-flash": {
+   "model": "flash",
+   "variant": "ours",
+   "label": "DeepSeek V4.1 Flash · ours",
+   "n": 40,
+   "success": 76.6,
+   "full_solves": 30,
+   "cost": 3.94,
+   "cost_split": {
+    "uncached_input": 0.67,
+    "cache_read": 1.98,
+    "output": 1.29
+   },
+   "tokens": {
+    "input": 68116770,
+    "cache": 65899136,
+    "output": 1078211
+   },
+   "steps": 1754,
+   "agent_minutes": 296,
+   "harness_overhead_tokens": 699182,
+   "harness_overhead_usd": 0.029,
+   "harness_overhead_share_of_input": 1.03,
+   "by_family": {
+    "Multimedia & Design": {
+     "n": 5,
+     "success": 53.0
+    },
+    "Office & Productivity": {
+     "n": 17,
+     "success": 70.6
+    },
+    "System & Software Operations": {
+     "n": 8,
+     "success": 100.0
+    },
+    "Web & Information": {
+     "n": 10,
+     "success": 80.0
+    }
+   },
+   "tasks_with_event": {
+    "c2_gate": 40,
+    "c2_report": 17,
+    "c3_time": 1,
+    "c3_repeat": 4,
+    "c3_stuck": 0,
+    "c3_respawn": 0,
+    "c5_noise": 3,
+    "c5_repeat": 7
+   }
+  },
+  "B1-opus55": {
+   "model": "opus",
+   "variant": "default",
+   "label": "Claude Opus 5.5 · default",
+   "n": 40,
+   "success": 62.0,
+   "full_solves": 24,
+   "cost": 28.07,
+   "cost_split": {
+    "uncached_input": 3.57,
+    "cache_read": 2.56,
+    "output": 21.94
+   },
+   "tokens": {
+    "input": 13691379,
+    "cache": 12798950,
+    "output": 1096954
+   },
+   "steps": 618,
+   "agent_minutes": 312,
+   "harness_overhead_tokens": 0,
+   "harness_overhead_usd": 0.0,
+   "harness_overhead_share_of_input": 0.0,
+   "by_family": {
+    "Multimedia & Design": {
+     "n": 5,
+     "success": 36.1
+    },
+    "Office & Productivity": {
+     "n": 17,
+     "success": 47.1
+    },
+    "System & Software Operations": {
+     "n": 8,
+     "success": 100.0
+    },
+    "Web & Information": {
+     "n": 10,
+     "success": 70.0
+    }
+   },
+   "tasks_with_event": {
+    "c2_gate": 0,
+    "c2_report": 0,
+    "c3_time": 0,
+    "c3_repeat": 0,
+    "c3_stuck": 0,
+    "c3_respawn": 0,
+    "c5_noise": 0,
+    "c5_repeat": 0
+   }
+  },
+  "H-opus55": {
+   "model": "opus",
+   "variant": "ours",
+   "label": "Claude Opus 5.5 · ours",
+   "n": 40,
+   "success": 74.2,
+   "full_solves": 29,
+   "cost": 4.61,
+   "cost_split": {
+    "uncached_input": 1.87,
+    "cache_read": 0.5,
+    "output": 2.24
+   },
+   "tokens": {
+    "input": 2959824,
+    "cache": 2492348,
+    "output": 111861
+   },
+   "steps": 432,
+   "agent_minutes": 106,
+   "harness_overhead_tokens": 186283,
+   "harness_overhead_usd": 0.147,
+   "harness_overhead_share_of_input": 6.29,
+   "by_family": {
+    "Multimedia & Design": {
+     "n": 5,
+     "success": 73.4
+    },
+    "Office & Productivity": {
+     "n": 17,
+     "success": 58.8
+    },
+    "System & Software Operations": {
+     "n": 8,
+     "success": 87.5
+    },
+    "Web & Information": {
+     "n": 10,
+     "success": 90.0
+    }
+   },
+   "tasks_with_event": {
+    "c2_gate": 40,
+    "c2_report": 17,
+    "c3_time": 0,
+    "c3_repeat": 1,
+    "c3_stuck": 0,
+    "c3_respawn": 0,
+    "c5_noise": 0,
+    "c5_repeat": 4
+   }
+  }
+ },
+ "pareto_frontier": [
+  "B0-flash",
+  "H-flash"
+ ],
+ "flips": {
+  "H-m3": {
+   "gained": [
+    "014-pivot-promo-revenue",
+    "018-calculate-total-earnings",
+    "022-monthly-sales-line-chart",
+    "028-civil-division-forms",
+    "035-super-bowl-score",
+    "045-united-bag-fee-page",
+    "048-tamiflu-side-effects",
+    "049-remove-dog-background",
+    "051-hide-left-dock",
+    "059-make-summary-slide",
+    "062-add-baseball-audio",
+    "118-set-times-new-roman",
+    "119-tabstop-sentence-split"
+   ],
+   "lost": [
+    "037-electric-cars-under-50k",
+    "111-set-video-wallpaper"
+   ]
+  },
+  "A1-m3": {
+   "gained": [
+    "022-monthly-sales-line-chart",
+    "028-civil-division-forms",
+    "035-super-bowl-score",
+    "042-black-sale-coffee-makers",
+    "045-united-bag-fee-page",
+    "048-tamiflu-side-effects",
+    "049-remove-dog-background",
+    "051-hide-left-dock",
+    "119-tabstop-sentence-split"
+   ],
+   "lost": [
+    "037-electric-cars-under-50k",
+    "111-set-video-wallpaper"
+   ]
+  },
+  "A2-m3": {
+   "gained": [
+    "018-calculate-total-earnings",
+    "028-civil-division-forms",
+    "042-black-sale-coffee-makers",
+    "048-tamiflu-side-effects",
+    "049-remove-dog-background",
+    "051-hide-left-dock",
+    "058-autosave-3-minutes",
+    "059-make-summary-slide",
+    "062-add-baseball-audio",
+    "118-set-times-new-roman",
+    "119-tabstop-sentence-split"
+   ],
+   "lost": [
+    "037-electric-cars-under-50k",
+    "112-capture-video-frame"
+   ]
+  },
+  "A3-m3": {
+   "gained": [
+    "016-count-invoice-pivot",
+    "028-civil-division-forms",
+    "035-super-bowl-score",
+    "048-tamiflu-side-effects",
+    "058-autosave-3-minutes",
+    "062-add-baseball-audio",
+    "118-set-times-new-roman",
+    "119-tabstop-sentence-split"
+   ],
+   "lost": [
+    "037-electric-cars-under-50k",
+    "041-baby-name-carl"
+   ]
+  },
+  "A4-m3": {
+   "gained": [
+    "018-calculate-total-earnings",
+    "022-monthly-sales-line-chart",
+    "028-civil-division-forms",
+    "042-black-sale-coffee-makers",
+    "045-united-bag-fee-page",
+    "049-remove-dog-background",
+    "058-autosave-3-minutes",
+    "059-make-summary-slide",
+    "118-set-times-new-roman"
+   ],
+   "lost": [
+    "037-electric-cars-under-50k",
+    "055-resize-dog-layer",
+    "112-capture-video-frame",
+    "116-bottom-left-page-numbers"
+   ]
+  },
+  "A5-m3": {
+   "gained": [
+    "018-calculate-total-earnings",
+    "028-civil-division-forms",
+    "035-super-bowl-score",
+    "045-united-bag-fee-page",
+    "049-remove-dog-background",
+    "051-hide-left-dock",
+    "058-autosave-3-minutes",
+    "059-make-summary-slide",
+    "062-add-baseball-audio",
+    "118-set-times-new-roman",
+    "119-tabstop-sentence-split"
+   ],
+   "lost": [
+    "037-electric-cars-under-50k",
+    "039-manchester-forecast",
+    "111-set-video-wallpaper",
+    "112-capture-video-frame"
+   ]
+  },
+  "H-flash": {
+   "gained": [
+    "022-monthly-sales-line-chart",
+    "042-black-sale-coffee-makers",
+    "058-autosave-3-minutes",
+    "067-align-slide-textboxes",
+    "068-strike-first-two-lines"
+   ],
+   "lost": [
+    "028-civil-division-forms",
+    "053-make-palette-png",
+    "061-insert-features-table"
+   ]
+  },
+  "H-opus55": {
+   "gained": [
+    "022-monthly-sales-line-chart",
+    "035-super-bowl-score",
+    "042-black-sale-coffee-makers",
+    "049-remove-dog-background",
+    "053-make-palette-png",
+    "118-set-times-new-roman"
+   ],
+   "lost": [
+    "058-autosave-3-minutes"
+   ]
+  }
+ },
+ "rescued_by_single_component": {
+  "016-count-invoice-pivot": [
+   "A3-m3"
+  ],
+  "018-calculate-total-earnings": [
+   "A2-m3",
+   "A4-m3",
+   "A5-m3"
+  ],
+  "022-monthly-sales-line-chart": [
+   "A1-m3",
+   "A4-m3"
+  ],
+  "028-civil-division-forms": [
+   "A1-m3",
+   "A2-m3",
+   "A3-m3",
+   "A4-m3",
+   "A5-m3"
+  ],
+  "035-super-bowl-score": [
+   "A1-m3",
+   "A3-m3",
+   "A5-m3"
+  ],
+  "042-black-sale-coffee-makers": [
+   "A1-m3",
+   "A2-m3",
+   "A4-m3"
+  ],
+  "045-united-bag-fee-page": [
+   "A1-m3",
+   "A4-m3",
+   "A5-m3"
+  ],
+  "048-tamiflu-side-effects": [
+   "A1-m3",
+   "A2-m3",
+   "A3-m3"
+  ],
+  "049-remove-dog-background": [
+   "A1-m3",
+   "A2-m3",
+   "A4-m3",
+   "A5-m3"
+  ],
+  "051-hide-left-dock": [
+   "A1-m3",
+   "A2-m3",
+   "A5-m3"
+  ],
+  "058-autosave-3-minutes": [
+   "A2-m3",
+   "A3-m3",
+   "A4-m3",
+   "A5-m3"
+  ],
+  "059-make-summary-slide": [
+   "A2-m3",
+   "A4-m3",
+   "A5-m3"
+  ],
+  "062-add-baseball-audio": [
+   "A2-m3",
+   "A3-m3",
+   "A5-m3"
+  ],
+  "118-set-times-new-roman": [
+   "A2-m3",
+   "A3-m3",
+   "A4-m3",
+   "A5-m3"
+  ],
+  "119-tabstop-sentence-split": [
+   "A1-m3",
+   "A2-m3",
+   "A3-m3",
+   "A5-m3"
+  ]
+ },
+ "per_task": {
+  "012-hide-na-budget-values": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 0.0,
+   "A1-m3": 0.0,
+   "A2-m3": 0.0,
+   "A3-m3": 0.0,
+   "A4-m3": 0.0,
+   "A5-m3": 0.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 0.0
+  },
+  "013-format-demographic-sheet": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 0.0,
+   "A1-m3": 0.0,
+   "A2-m3": 0.0,
+   "A3-m3": 0.0,
+   "A4-m3": 0.0,
+   "A5-m3": 0.0,
+   "B0-flash": 0.0,
+   "H-flash": 0.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 0.0
+  },
+  "014-pivot-promo-revenue": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 1.0,
+   "A1-m3": 0.0,
+   "A2-m3": 0.0,
+   "A3-m3": 0.0,
+   "A4-m3": 0.0,
+   "A5-m3": 0.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "016-count-invoice-pivot": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 0.0,
+   "A1-m3": 0.0,
+   "A2-m3": 0.0,
+   "A3-m3": 1.0,
+   "A4-m3": 0.0,
+   "A5-m3": 0.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "018-calculate-total-earnings": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 1.0,
+   "A1-m3": 0.0,
+   "A2-m3": 1.0,
+   "A3-m3": 0.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "020-calculate-period-rate": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 0.0,
+   "A1-m3": 0.0,
+   "A2-m3": 0.0,
+   "A3-m3": 0.0,
+   "A4-m3": 0.0,
+   "A5-m3": 0.0,
+   "B0-flash": 0.0,
+   "H-flash": 0.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 0.0
+  },
+  "022-monthly-sales-line-chart": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 0.0,
+   "A3-m3": 0.0,
+   "A4-m3": 1.0,
+   "A5-m3": 0.0,
+   "B0-flash": 0.0,
+   "H-flash": 1.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 1.0
+  },
+  "026-sales-cogs-column-chart": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 0.0,
+   "A1-m3": 0.0,
+   "A2-m3": 0.0,
+   "A3-m3": 0.0,
+   "A4-m3": 0.0,
+   "A5-m3": 0.0,
+   "B0-flash": 0.0,
+   "H-flash": 0.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 0.0
+  },
+  "027-add-dota-dlc-cart": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 0.0,
+   "A1-m3": 0.0,
+   "A2-m3": 0.0,
+   "A3-m3": 0.0,
+   "A4-m3": 0.0,
+   "A5-m3": 0.0,
+   "B0-flash": 0.0,
+   "H-flash": 0.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 0.0
+  },
+  "028-civil-division-forms": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 0.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "031-profile-name-thomas": {
+   "B0-minimax-m3": 1.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "034-turn-off-dark-mode": {
+   "B0-minimax-m3": 1.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "035-super-bowl-score": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 0.0,
+   "A3-m3": 1.0,
+   "A4-m3": 0.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 1.0
+  },
+  "036-license-eligibility": {
+   "B0-minimax-m3": 1.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "037-electric-cars-under-50k": {
+   "B0-minimax-m3": 1.0,
+   "H-m3": 0.0,
+   "A1-m3": 0.0,
+   "A2-m3": 0.0,
+   "A3-m3": 0.0,
+   "A4-m3": 0.0,
+   "A5-m3": 0.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "039-manchester-forecast": {
+   "B0-minimax-m3": 1.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 1.0,
+   "A5-m3": 0.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "041-baby-name-carl": {
+   "B0-minimax-m3": 1.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 0.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "042-black-sale-coffee-makers": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 0.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 0.0,
+   "A4-m3": 1.0,
+   "A5-m3": 0.0,
+   "B0-flash": 0.0,
+   "H-flash": 1.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 1.0
+  },
+  "043-load-hello-extension": {
+   "B0-minimax-m3": 1.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "045-united-bag-fee-page": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 0.0,
+   "A3-m3": 0.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "046-restore-tripadvisor-tab": {
+   "B0-minimax-m3": 1.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "048-tamiflu-side-effects": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 0.0,
+   "A5-m3": 0.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "049-remove-dog-background": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 0.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 1.0
+  },
+  "051-hide-left-dock": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 0.0,
+   "A4-m3": 0.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "053-make-palette-png": {
+   "B0-minimax-m3": 1.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 0.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 1.0
+  },
+  "055-resize-dog-layer": {
+   "B0-minimax-m3": 1.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 0.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "057-set-undo-steps-100": {
+   "B0-minimax-m3": 1.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "058-autosave-3-minutes": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 0.0,
+   "A1-m3": 0.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 0.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 0.0
+  },
+  "059-make-summary-slide": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 1.0,
+   "A1-m3": 0.0,
+   "A2-m3": 1.0,
+   "A3-m3": 0.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "061-insert-features-table": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 0.0,
+   "A1-m3": 0.0,
+   "A2-m3": 0.0,
+   "A3-m3": 0.0,
+   "A4-m3": 0.0,
+   "A5-m3": 0.0,
+   "B0-flash": 1.0,
+   "H-flash": 0.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "062-add-baseball-audio": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 1.0,
+   "A1-m3": 0.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 0.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "065-resize-slide3-slide6": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 0.0,
+   "A1-m3": 0.0,
+   "A2-m3": 0.0,
+   "A3-m3": 0.0,
+   "A4-m3": 0.0,
+   "A5-m3": 0.0,
+   "B0-flash": 0.0,
+   "H-flash": 0.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 0.0
+  },
+  "067-align-slide-textboxes": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 0.0,
+   "A1-m3": 0.0,
+   "A2-m3": 0.0,
+   "A3-m3": 0.0,
+   "A4-m3": 0.0,
+   "A5-m3": 0.0,
+   "B0-flash": 0.0,
+   "H-flash": 1.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 0.0
+  },
+  "068-strike-first-two-lines": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 0.0,
+   "A1-m3": 0.0,
+   "A2-m3": 0.0,
+   "A3-m3": 0.0,
+   "A4-m3": 0.0,
+   "A5-m3": 0.0,
+   "B0-flash": 0.0,
+   "H-flash": 1.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 0.0
+  },
+  "111-set-video-wallpaper": {
+   "B0-minimax-m3": 0.44261158849211757,
+   "H-m3": 0.0,
+   "A1-m3": 0.0,
+   "A2-m3": 0.44261158849211757,
+   "A3-m3": 0.3731116465581085,
+   "A4-m3": 0.36719744227003515,
+   "A5-m3": 0.0,
+   "B0-flash": 0.0,
+   "H-flash": 0.2800546191213098,
+   "B1-opus55": 0.36719744227003515,
+   "H-opus55": 0.3333821254992549
+  },
+  "112-capture-video-frame": {
+   "B0-minimax-m3": 0.750595692951772,
+   "H-m3": 0.4839491354767057,
+   "A1-m3": 0.5039243137579846,
+   "A2-m3": 0.4420693654367166,
+   "A3-m3": 0.5039243137579846,
+   "A4-m3": 0.3890018820927434,
+   "A5-m3": 0.4420693654367166,
+   "B0-flash": 0.33882924807579934,
+   "H-flash": 0.3709304638634132,
+   "B1-opus55": 0.43680572362033127,
+   "H-opus55": 0.3378021685095988
+  },
+  "113-add-folders-workspace": {
+   "B0-minimax-m3": 1.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "116-bottom-left-page-numbers": {
+   "B0-minimax-m3": 1.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 0.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  },
+  "118-set-times-new-roman": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 1.0,
+   "A1-m3": 0.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 1.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 0.0,
+   "H-opus55": 1.0
+  },
+  "119-tabstop-sentence-split": {
+   "B0-minimax-m3": 0.0,
+   "H-m3": 1.0,
+   "A1-m3": 1.0,
+   "A2-m3": 1.0,
+   "A3-m3": 1.0,
+   "A4-m3": 0.0,
+   "A5-m3": 1.0,
+   "B0-flash": 1.0,
+   "H-flash": 1.0,
+   "B1-opus55": 1.0,
+   "H-opus55": 1.0
+  }
+ },
+ "opus_input_tokens_per_task": {
+  "012-hide-na-budget-values": {
+   "B1-opus55": 26429,
+   "H-opus55": 44623
+  },
+  "013-format-demographic-sheet": {
+   "B1-opus55": 28305,
+   "H-opus55": 83358
+  },
+  "014-pivot-promo-revenue": {
+   "B1-opus55": 243515,
+   "H-opus55": 93802
+  },
+  "016-count-invoice-pivot": {
+   "B1-opus55": 1993235,
+   "H-opus55": 63779
+  },
+  "018-calculate-total-earnings": {
+   "B1-opus55": 32678,
+   "H-opus55": 27276
+  },
+  "020-calculate-period-rate": {
+   "B1-opus55": 17441,
+   "H-opus55": 28513
+  },
+  "022-monthly-sales-line-chart": {
+   "B1-opus55": 21115,
+   "H-opus55": 42660
+  },
+  "026-sales-cogs-column-chart": {
+   "B1-opus55": 13160,
+   "H-opus55": 37532
+  },
+  "027-add-dota-dlc-cart": {
+   "B1-opus55": 112636,
+   "H-opus55": 158002
+  },
+  "028-civil-division-forms": {
+   "B1-opus55": 63458,
+   "H-opus55": 96168
+  },
+  "031-profile-name-thomas": {
+   "B1-opus55": 70467,
+   "H-opus55": 80742
+  },
+  "034-turn-off-dark-mode": {
+   "B1-opus55": 100470,
+   "H-opus55": 100669
+  },
+  "035-super-bowl-score": {
+   "B1-opus55": 55174,
+   "H-opus55": 82923
+  },
+  "036-license-eligibility": {
+   "B1-opus55": 60981,
+   "H-opus55": 100715
+  },
+  "037-electric-cars-under-50k": {
+   "B1-opus55": 27366,
+   "H-opus55": 194676
+  },
+  "039-manchester-forecast": {
+   "B1-opus55": 64497,
+   "H-opus55": 79685
+  },
+  "041-baby-name-carl": {
+   "B1-opus55": 112209,
+   "H-opus55": 361509
+  },
+  "042-black-sale-coffee-makers": {
+   "B1-opus55": 4731279,
+   "H-opus55": 235252
+  },
+  "043-load-hello-extension": {
+   "B1-opus55": 118021,
+   "H-opus55": 75408
+  },
+  "045-united-bag-fee-page": {
+   "B1-opus55": 96553,
+   "H-opus55": 95299
+  },
+  "046-restore-tripadvisor-tab": {
+   "B1-opus55": 29518,
+   "H-opus55": 46017
+  },
+  "048-tamiflu-side-effects": {
+   "B1-opus55": 59894,
+   "H-opus55": 146715
+  },
+  "049-remove-dog-background": {
+   "B1-opus55": 1357537,
+   "H-opus55": 46491
+  },
+  "051-hide-left-dock": {
+   "B1-opus55": 377924,
+   "H-opus55": 36280
+  },
+  "053-make-palette-png": {
+   "B1-opus55": 276764,
+   "H-opus55": 25618
+  },
+  "055-resize-dog-layer": {
+   "B1-opus55": 151179,
+   "H-opus55": 44147
+  },
+  "057-set-undo-steps-100": {
+   "B1-opus55": 92782,
+   "H-opus55": 26767
+  },
+  "058-autosave-3-minutes": {
+   "B1-opus55": 116162,
+   "H-opus55": 44901
+  },
+  "059-make-summary-slide": {
+   "B1-opus55": 1285878,
+   "H-opus55": 28888
+  },
+  "061-insert-features-table": {
+   "B1-opus55": 17510,
+   "H-opus55": 20594
+  },
+  "062-add-baseball-audio": {
+   "B1-opus55": 719169,
+   "H-opus55": 48059
+  },
+  "065-resize-slide3-slide6": {
+   "B1-opus55": 57238,
+   "H-opus55": 25324
+  },
+  "067-align-slide-textboxes": {
+   "B1-opus55": 263664,
+   "H-opus55": 47246
+  },
+  "068-strike-first-two-lines": {
+   "B1-opus55": 51779,
+   "H-opus55": 26635
+  },
+  "111-set-video-wallpaper": {
+   "B1-opus55": 119752,
+   "H-opus55": 87793
+  },
+  "112-capture-video-frame": {
+   "B1-opus55": 14016,
+   "H-opus55": 62552
+  },
+  "113-add-folders-workspace": {
+   "B1-opus55": 8867,
+   "H-opus55": 10184
+  },
+  "116-bottom-left-page-numbers": {
+   "B1-opus55": 384519,
+   "H-opus55": 49094
+  },
+  "118-set-times-new-roman": {
+   "B1-opus55": 129534,
+   "H-opus55": 22271
+  },
+  "119-tabstop-sentence-split": {
+   "B1-opus55": 188704,
+   "H-opus55": 31657
+  }
+ },
+ "prices_per_mtok": {
+  "m3": {
+   "input": 0.3,
+   "output": 1.2,
+   "cache_read": 0.06
+  },
+  "flash": {
+   "input": 0.3,
+   "output": 1.2,
+   "cache_read": 0.03
+  },
+  "opus": {
+   "input": 4.0,
+   "output": 20.0,
+   "cache_read": 0.2
+  }
+ }
+}

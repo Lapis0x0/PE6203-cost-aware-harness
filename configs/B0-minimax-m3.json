@@ -1,0 +1,16 @@
+{
+  "name": "B0-minimax-m3",
+  "description": "Weak cheap-model baseline (replaces Qwen3.6): stock Terminus-2 + MiniMax M3 (Atlas, Chat Completions, default thinking)",
+  "agent": "terminus-2",
+  "model": "openai/minimaxai/minimax-m3",
+  "price_id": "minimaxai/minimax-m3",
+  "api_base_env": "ATLASCLOUD_BASE_URL",
+  "api_base_strip_v1": false,
+  "key_env_name": "OPENAI_API_KEY",
+  "agent_kwargs": {
+    "llm_call_kwargs": {
+      "cah_stream_aggregate": true
+    }
+  },
+  "notes": "On Atlas, non-streaming M3 calls repeat the body text (usage is double-counted too); streaming is fine. cah_stream_aggregate is a switch added by runner patch harbor-0.6.3-stream-aggregate.patch: it streams and reassembles a normal response, changing only the transport; model and decoding parameters are unchanged."
+}

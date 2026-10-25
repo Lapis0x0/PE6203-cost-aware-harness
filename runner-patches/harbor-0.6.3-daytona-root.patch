@@ -1,0 +1,26 @@
+--- /tmp/daytona.py.orig	2026-10-01 13:40:23.951063663 +0800
++++ .venv-harbor/lib/python3.12/site-packages/harbor/environments/daytona.py	2026-10-01 13:40:23.956063687 +0800
+@@ -223,6 +223,7 @@
+                 auto_stop_interval=env._auto_stop_interval,
+                 snapshot=snapshot_name,
+                 network_block_all=env._network_block_all,
++                os_user="root",  # cost-aware-harness patch: TUA image is USER agent without sudo; Harbor's su to root would hang
+             )
+         elif force_build or not env.task_env_config.docker_image:
+             env.logger.debug(f"Building environment from {env._dockerfile_path}")
+@@ -233,6 +234,7 @@
+                 auto_stop_interval=env._auto_stop_interval,
+                 resources=resources,
+                 network_block_all=env._network_block_all,
++                os_user="root",  # cost-aware-harness patch: TUA image is USER agent without sudo; Harbor's su to root would hang
+             )
+         else:
+             env.logger.debug(
+@@ -245,6 +247,7 @@
+                 auto_stop_interval=env._auto_stop_interval,
+                 resources=resources,
+                 network_block_all=env._network_block_all,
++                os_user="root",  # cost-aware-harness patch: TUA image is USER agent without sudo; Harbor's su to root would hang
+             )
+ 
+         await env._create_sandbox(params=params)

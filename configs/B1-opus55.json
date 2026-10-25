@@ -1,0 +1,20 @@
+{
+  "name": "B1-opus55",
+  "description": "Expensive-model baseline: stock Terminus-2 + Claude Opus 5.5 (Atlas, native Anthropic Messages API, adaptive thinking)",
+  "agent": "terminus-2",
+  "model": "anthropic/anthropic/claude-opus-5.5",
+  "price_id": "anthropic/claude-opus-5.5",
+  "api_base_env": "ATLASCLOUD_BASE_URL",
+  "api_base_strip_v1": true,
+  "key_env_name": "ANTHROPIC_API_KEY",
+  "agent_kwargs": {
+    "temperature": null,
+    "llm_call_kwargs": {
+      "thinking": {
+        "type": "adaptive"
+      },
+      "max_tokens": 16000
+    }
+  },
+  "notes": "Same settings as B1 (no temperature, adaptive thinking, max_tokens 16000); only the model differs."
+}

@@ -1,0 +1,18 @@
+{
+  "name": "H-flash",
+  "description": "Improved: DeepSeek V4.1 Flash + all five components on",
+  "model": "openai/deepseek-ai/deepseek-v4.1-flash",
+  "price_id": "deepseek-ai/deepseek-v4.1-flash",
+  "api_base_env": "ATLASCLOUD_BASE_URL",
+  "api_base_strip_v1": false,
+  "key_env_name": "OPENAI_API_KEY",
+  "agent_kwargs": {
+    "c1_native_tools": true,
+    "c2_verify_gate": true,
+    "c3_stall_budget": true,
+    "c4_domain_notes": true,
+    "c5_obs_denoise": true
+  },
+  "agent_import_path": "cah_agent:CostAwareTerminus",
+  "notes": "Model settings are identical to B0-flash; only the component switches differ. See README.md and docs/failure-analysis.md."
+}

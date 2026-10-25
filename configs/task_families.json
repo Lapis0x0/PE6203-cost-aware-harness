@@ -1,0 +1,482 @@
+{
+"000-count-nuclei": [
+"Scientific & Engineering",
+"Bioimage Analysis"
+],
+"001-locate-nuclei-centers": [
+"Scientific & Engineering",
+"Bioimage Analysis"
+],
+"002-count-enter-key-presses": [
+"Multimedia & Design",
+"Video Understanding"
+],
+"003-rebuild-energy-model": [
+"Scientific & Engineering",
+"Engineering Simulation"
+],
+"004-place-heater-for-sensors": [
+"Scientific & Engineering",
+"Engineering Simulation"
+],
+"005-optimize-cold-plate": [
+"Scientific & Engineering",
+"Engineering Simulation"
+],
+"006-extract-gym-auditorium": [
+"Scientific & Engineering",
+"Engineering Simulation"
+],
+"007-reconstruct-prostate-obj": [
+"Scientific & Engineering",
+"Medical Imaging"
+],
+"008-find-bird-chase-frames": [
+"Multimedia & Design",
+"Video Understanding"
+],
+"009-repair-org-chart-layout": [
+"Multimedia & Design",
+"Diagram & Drawing"
+],
+"010-pivot-product-revenue": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"011-epw-parquet-check": [
+"Scientific & Engineering",
+"Engineering Simulation"
+],
+"012-hide-na-budget-values": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"013-format-demographic-sheet": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"014-pivot-promo-revenue": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"015-gym-auditorium-sim": [
+"Scientific & Engineering",
+"Engineering Simulation"
+],
+"016-count-invoice-pivot": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"017-clean-movie-titles": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"018-calculate-total-earnings": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"019-prostate-red-overlay": [
+"Scientific & Engineering",
+"Medical Imaging"
+],
+"020-calculate-period-rate": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"021-fill-ramp-chart": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"022-monthly-sales-line-chart": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"023-comma-decimal-separator": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"024-wa-osm-to-idf": [
+"Scientific & Engineering",
+"Engineering Simulation"
+],
+"025-product-channel-pivots": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"026-sales-cogs-column-chart": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"027-add-dota-dlc-cart": [
+"Web & Information",
+"Shopping & Commerce"
+],
+"028-civil-division-forms": [
+"Web & Information",
+"Public Reference"
+],
+"029-natural-products-page": [
+"Web & Information",
+"Public Reference"
+],
+"030-womens-nike-jerseys": [
+"Web & Information",
+"Shopping & Commerce"
+],
+"031-profile-name-thomas": [
+"System & Software Operations",
+"Application & Environment Config"
+],
+"032-compare-iphones": [
+"Web & Information",
+"Shopping & Commerce"
+],
+"033-prostate-volume-est": [
+"Scientific & Engineering",
+"Medical Imaging"
+],
+"034-turn-off-dark-mode": [
+"System & Software Operations",
+"Application & Environment Config"
+],
+"035-super-bowl-score": [
+"Web & Information",
+"Public Reference"
+],
+"036-license-eligibility": [
+"Web & Information",
+"Public Reference"
+],
+"037-electric-cars-under-50k": [
+"Web & Information",
+"Shopping & Commerce"
+],
+"038-zurich-rental-car": [
+"Web & Information",
+"Travel & Local"
+],
+"039-manchester-forecast": [
+"Web & Information",
+"Travel & Local"
+],
+"040-seattle-ny-miles-flight": [
+"Web & Information",
+"Travel & Local"
+],
+"041-baby-name-carl": [
+"Web & Information",
+"Public Reference"
+],
+"042-black-sale-coffee-makers": [
+"Web & Information",
+"Shopping & Commerce"
+],
+"043-load-hello-extension": [
+"System & Software Operations",
+"Application & Environment Config"
+],
+"044-etsy-saved-passwords": [
+"System & Software Operations",
+"Application & Environment Config"
+],
+"045-united-bag-fee-page": [
+"Web & Information",
+"Travel & Local"
+],
+"046-restore-tripadvisor-tab": [
+"System & Software Operations",
+"Application & Environment Config"
+],
+"047-set-bing-search": [
+"System & Software Operations",
+"Application & Environment Config"
+],
+"048-tamiflu-side-effects": [
+"Web & Information",
+"Public Reference"
+],
+"049-remove-dog-background": [
+"Multimedia & Design",
+"Image Editing"
+],
+"050-mri-png-slices": [
+"Scientific & Engineering",
+"Medical Imaging"
+],
+"051-hide-left-dock": [
+"System & Software Operations",
+"Application & Environment Config"
+],
+"052-vignette-filter-window": [
+"System & Software Operations",
+"Application & Environment Config"
+],
+"053-make-palette-png": [
+"Multimedia & Design",
+"Image Editing"
+],
+"054-prostate-label-obj": [
+"Scientific & Engineering",
+"Medical Imaging"
+],
+"055-resize-dog-layer": [
+"Multimedia & Design",
+"Image Editing"
+],
+"056-move-textbox-left": [
+"Multimedia & Design",
+"Image Editing"
+],
+"057-set-undo-steps-100": [
+"System & Software Operations",
+"Application & Environment Config"
+],
+"058-autosave-3-minutes": [
+"System & Software Operations",
+"Application & Environment Config"
+],
+"059-make-summary-slide": [
+"Office & Productivity",
+"Presentations"
+],
+"060-underline-red-text": [
+"Office & Productivity",
+"Presentations"
+],
+"061-insert-features-table": [
+"Office & Productivity",
+"Presentations"
+],
+"062-add-baseball-audio": [
+"Office & Productivity",
+"Presentations"
+],
+"063-red-slide-numbers": [
+"Office & Productivity",
+"Presentations"
+],
+"064-stretch-cover-image": [
+"Office & Productivity",
+"Presentations"
+],
+"065-resize-slide3-slide6": [
+"Office & Productivity",
+"Presentations"
+],
+"066-set-slide-image-heights": [
+"Office & Productivity",
+"Presentations"
+],
+"067-align-slide-textboxes": [
+"Office & Productivity",
+"Presentations"
+],
+"068-strike-first-two-lines": [
+"Office & Productivity",
+"Presentations"
+],
+"069-linux-ls-tutorial": [
+"Office & Productivity",
+"Documents"
+],
+"070-edit-friend-image": [
+"Multimedia & Design",
+"Image Editing"
+],
+"071-paste-image-docx": [
+"Office & Productivity",
+"Documents"
+],
+"072-save-speedtest-results": [
+"System & Software Operations",
+"OS & File Operations"
+],
+"073-force-quit-frozen-doc": [
+"System & Software Operations",
+"OS & File Operations"
+],
+"074-apa-references-review": [
+"Office & Productivity",
+"Documents"
+],
+"075-nuclei-locations": [
+"Scientific & Engineering",
+"Bioimage Analysis"
+],
+"076-make-src-gif-clip": [
+"Multimedia & Design",
+"Video & Audio Editing"
+],
+"077-corresponding-scholar-url": [
+"Web & Information",
+"Academic Lookup"
+],
+"078-add-wednesday-lecture": [
+"Office & Productivity",
+"Documents"
+],
+"079-fix-mp3-metadata": [
+"Multimedia & Design",
+"Video & Audio Editing"
+],
+"080-convert-novel-epub": [
+"Multimedia & Design",
+"Format Conversion"
+],
+"081-video-frame-slide-bg": [
+"Office & Productivity",
+"Presentations"
+],
+"082-brighten-slide-image": [
+"Office & Productivity",
+"Presentations"
+],
+"083-gemini-responses-docx": [
+"Office & Productivity",
+"Documents"
+],
+"084-plate-thermal-sim": [
+"Scientific & Engineering",
+"Engineering Simulation"
+],
+"085-webext-happy-scaffold": [
+"System & Software Operations",
+"Software Development"
+],
+"086-futian-checkin-addresses": [
+"Office & Productivity",
+"Documents"
+],
+"087-spreadsheet-to-doc-table": [
+"Office & Productivity",
+"Documents"
+],
+"088-extract-presenter-photos": [
+"Multimedia & Design",
+"Image Editing"
+],
+"089-install-recommended-exts": [
+"System & Software Operations",
+"Application & Environment Config"
+],
+"090-ecs-grf-pass-rates": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"091-add-receipts-bookkeeping": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"092-fix-tetris-bug": [
+"System & Software Operations",
+"Software Development"
+],
+"093-merge-txt-document": [
+"System & Software Operations",
+"OS & File Operations"
+],
+"094-author-homepage-bookmarks": [
+"Web & Information",
+"Academic Lookup"
+],
+"095-save-apple-searching-page": [
+"Web & Information",
+"Web Archiving"
+],
+"096-first-author-table": [
+"Office & Productivity",
+"Documents"
+],
+"097-slides-to-document": [
+"Office & Productivity",
+"Documents"
+],
+"098-extract-email-doc-image": [
+"Office & Productivity",
+"Email & Messaging"
+],
+"099-professor-contact-info": [
+"Web & Information",
+"Academic Lookup"
+],
+"100-name-mountain-photos": [
+"Web & Information",
+"Public Reference"
+],
+"101-rearrange-warm-tiles": [
+"Multimedia & Design",
+"Image Editing"
+],
+"102-daily-email-report": [
+"Office & Productivity",
+"Email & Messaging"
+],
+"103-download-blog-pdfs": [
+"Web & Information",
+"Web Archiving"
+],
+"104-arxiv-llm-workbook": [
+"Office & Productivity",
+"Spreadsheets"
+],
+"105-search-cell-b6": [
+"Web & Information",
+"Public Reference"
+],
+"106-create-charles-ssh-user": [
+"System & Software Operations",
+"OS & File Operations"
+],
+"107-attach-aws-bill": [
+"Office & Productivity",
+"Email & Messaging"
+],
+"108-create-mail-folders": [
+"Office & Productivity",
+"Email & Messaging"
+],
+"109-setup-outlook-account": [
+"Office & Productivity",
+"Email & Messaging"
+],
+"110-rotate-macintosh-video": [
+"Multimedia & Design",
+"Video & Audio Editing"
+],
+"111-set-video-wallpaper": [
+"Multimedia & Design",
+"Video & Audio Editing"
+],
+"112-capture-video-frame": [
+"Multimedia & Design",
+"Video & Audio Editing"
+],
+"113-add-folders-workspace": [
+"System & Software Operations",
+"Application & Environment Config"
+],
+"114-nuclei-csv-open": [
+"Scientific & Engineering",
+"Bioimage Analysis"
+],
+"115-remove-explorer-find-key": [
+"System & Software Operations",
+"Application & Environment Config"
+],
+"116-bottom-left-page-numbers": [
+"Office & Productivity",
+"Documents"
+],
+"117-comma-text-to-table": [
+"Office & Productivity",
+"Documents"
+],
+"118-set-times-new-roman": [
+"Office & Productivity",
+"Documents"
+],
+"119-tabstop-sentence-split": [
+"Office & Productivity",
+"Documents"
+]
+}

@@ -1,0 +1,31 @@
+{
+ "source": "Atlas Cloud /v1/models snapshot 2026-10-01 (pricing/atlascloud-models-2026-10-01.json); minimaxai/minimax-m3 from live /v1/models 2026-10-12 (pricing/atlascloud-models-2026-10-12.json)",
+ "unit": "USD per token",
+ "models": {
+  "deepseek-ai/deepseek-v4.1-flash": {
+   "input": 3e-07,
+   "output": 1.2e-06,
+   "cache_read": 3e-08
+  },
+  "anthropic/claude-opus-4.8": {
+   "input": 5e-06,
+   "output": 2.5e-05,
+   "cache_read": 5e-07
+  },
+  "anthropic/claude-opus-5.5": {
+   "input": 4e-06,
+   "output": 2e-05,
+   "cache_read": 2e-07
+  },
+  "qwen/qwen3.6-35b-a3b": {
+   "input": 1.86e-07,
+   "output": 1.11375e-06,
+   "cache_read": 1.86e-07
+  },
+  "minimaxai/minimax-m3": {
+   "input": 3e-07,
+   "output": 1.2e-06,
+   "cache_read": 6e-08
+  }
+ }
+}

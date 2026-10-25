@@ -1,0 +1,9 @@
+# local run state (raw logs are attached to the GitHub release instead)
+jobs/
+results/
+TUA-Bench/
+.venv*/
+.env
+report/charts/charts.html
+__pycache__/
+.DS_Store

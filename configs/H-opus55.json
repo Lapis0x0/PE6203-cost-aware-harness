@@ -1,0 +1,25 @@
+{
+  "name": "H-opus55",
+  "description": "Improved: Claude Opus 5.5 + all five components on (does the gain shrink with a stronger answering model?)",
+  "model": "anthropic/anthropic/claude-opus-5.5",
+  "price_id": "anthropic/claude-opus-5.5",
+  "api_base_env": "ATLASCLOUD_BASE_URL",
+  "api_base_strip_v1": true,
+  "key_env_name": "ANTHROPIC_API_KEY",
+  "agent_kwargs": {
+    "temperature": null,
+    "llm_call_kwargs": {
+      "thinking": {
+        "type": "adaptive"
+      },
+      "max_tokens": 16000
+    },
+    "c1_native_tools": true,
+    "c2_verify_gate": true,
+    "c3_stall_budget": true,
+    "c4_domain_notes": true,
+    "c5_obs_denoise": true
+  },
+  "notes": "Model settings are identical to B1-opus55; only the component switches differ. See README.md and docs/failure-analysis.md.",
+  "agent_import_path": "cah_agent:CostAwareTerminus"
+}

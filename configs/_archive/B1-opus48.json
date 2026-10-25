@@ -1,0 +1,20 @@
+{
+  "name": "B1-opus",
+  "description": "Expensive-model baseline: stock Terminus-2 + Claude Opus 4.8 (Atlas, native Anthropic Messages API, adaptive thinking)",
+  "agent": "terminus-2",
+  "model": "anthropic/anthropic/claude-opus-4.8",
+  "price_id": "anthropic/claude-opus-4.8",
+  "api_base_env": "ATLASCLOUD_BASE_URL",
+  "api_base_strip_v1": true,
+  "key_env_name": "ANTHROPIC_API_KEY",
+  "agent_kwargs": {
+    "temperature": null,
+    "llm_call_kwargs": {
+      "thinking": {
+        "type": "adaptive"
+      },
+      "max_tokens": 16000
+    }
+  },
+  "notes": "Opus 4.8 does not accept temperature (Terminus-2 sends 0.7 by default, which returns 400), so it is set to null and not sent. Opus 4.8 does not think unless thinking is passed, so adaptive thinking is enabled as the vendor recommends, with the default effort high. Atlas's -aws route blocks system paths such as /etc/passwd, and the non--aws route of Opus 5 does not think, so the non--aws route of Opus 4.8 was chosen. LiteLLM defaults Anthropic max_tokens to 4096 including thinking, so complex steps get truncated and count as failures; DeepSeek has no cap, so Opus is raised to 16000."
+}

@@ -1,0 +1,18 @@
+--- a/harbor/environments/docker/docker.py
++++ b/harbor/environments/docker/docker.py
+@@ -501,6 +501,15 @@
+                 f"chmod 777 {self._env_paths.agent_dir} {self._env_paths.verifier_dir} {self._env_paths.artifacts_dir}",
+                 user="root",  # cost-aware-harness patch: the TUA image defaults to USER agent; without running chmod as root it fails silently and the verifier cannot write reward; same for the artifacts directory, otherwise test.sh cannot save its output files
+             )
++            # cost-aware-harness patch: delete chrome_state.py. Its solved mode hard-codes the answer URL (used by the official oracle),
++            # and the agent can read and execute it in the image, which leaks the reference solution. The verifier does not use it; the entrypoint runs it once in task mode at startup,
++            # so delete it only after task mode finishes (the [c] form keeps pgrep from matching this command itself).
++            await self.exec(
++                "if [ -f /usr/local/bin/chrome_state.py ]; then "
++                "for i in $(seq 1 240); do [ -f /tmp/chrome_state.log ] && ! pgrep -f '[c]hrome_state.py task' >/dev/null 2>&1 && break; sleep 0.5; done; "
++                "sleep 2; rm -f /usr/local/bin/chrome_state.py; fi",
++                user="root",
++            )
+
+     async def prepare_logs_for_host(self) -> None:
+         """Chown the bind-mounted logs directory to the host user.
